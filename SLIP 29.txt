@@ -1,0 +1,74 @@
+SLIP 29
+1.
+import java.sql.*;
+public class DONOR{
+public static void main(String args[])
+{	
+	try{
+	Class.forName("org.postgresql.Driver");
+	Connection con=DriverManager.getConnection("jdbc:postgresql://server2/exam1","exam1","exam1");
+	Statement stmt=null;
+	stmt=con.createStatement();
+	ResultSet rs=stmt.executeQuery("select * from donor");
+	ResultSetMetaData rsmd=rs.getMetaData();
+	System.out.println("\t-----------------------------------------------");
+	int count=rsmd.getColumnCount();
+	System.out.println("\t No. of Columns : "+rsmd.getColumnCount());
+	System.out.println("\t-----------------------------------------------");
+	for(int i=1;i<=count;i++)
+	{
+		System.out.println("\t\tColumn No : "+i);
+		System.out.println("\t\tColumn Name : "+rsmd.getColumnName(i));
+		System.out.println("\t\tColumn Type : "+rsmd.getColumnTypeName(i));
+		System.out.println("\t\tColumn Size : "+rsmd.getColumnDisplaySize(i));
+		System.out.println();
+	}
+	System.out.println("\t-----------------------------------------------");
+	con.close();
+	}catch(Exception e)
+	{
+		System.out.println(e);	
+	}
+	}
+}
+
+	
+	
+2.
+import java.util.*;
+class slip29_2
+{
+   public static void main(String args[])
+   {
+    LinkedList l1=new LinkedList();
+       Scanner s=new Scanner(System.in);
+     System.out.println("Enter how many records");
+      int n=s.nextInt();
+System.out.println("Enter"+ n +"Integer");
+       for(int i=1;i<=n;i++)
+       {
+           
+           String c=s.next();
+           l1.add(c);
+       }
+System.out.println("the content of linked list is");
+  System.out.println(l1);
+  System.out.println("Enter the integer you want to add at first position");
+int a=s.nextInt();
+   l1.addFirst(new Integer(a));
+System.out.println("after adding element at first position");
+  System.out.println(l1);
+
+       l1.removeLast();
+System.out.println("after deleting element at last position");
+  System.out.println(l1);
+System.out.println("Size of linked list is"+l1.size());
+
+  
+
+
+
+   }
+
+
+}2.

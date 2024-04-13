@@ -1,0 +1,58 @@
+SLIP 28
+1.
+<!DOCTYPE html>
+<html>
+
+<body>
+<form method=get action="slip30_1.jsp" >
+	Enter String:<input type="text" name="t1"><br><br>
+	<input type="submit"  value="Display">
+</form>
+</body>
+</html>
+1_1
+%@page language="java"%>
+<!DOCTYPE html>
+<html>
+<head>
+<body>
+ <font color="red">
+   <%! 
+ String s1;
+    %>
+    <% 
+s1=request.getParameter("t1");
+StringBuffer br=new StringBuffer(s1);
+  out.println("reverse string is   "+br.reverse());
+   %>
+ </font>
+</body>
+</html>
+2.
+class prg2 implements Runnable
+{
+ Thread t; 
+prg2()
+  {
+t=new Thread(this,"test Thread");
+ System.out.println( "child thread is "+t);
+   t.start();
+   }
+   public void run()
+   {
+    
+    
+      System.out.println( "currently executing thread is "+Thread.currentThread().getName());
+     
+     }
+
+}
+
+   class slip28_2
+{
+  public static void main(String args[])
+{
+  prg2 d=new prg2();
+
+}
+}
